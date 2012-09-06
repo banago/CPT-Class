@@ -21,6 +21,18 @@ class JW_Post_Type
      */
     public $post_type_args;
 
+    /**
+     * The singular name of the post type
+     * @var string
+    */
+    public $singular;
+
+    /**
+     * The plural name of the post type
+     * @var string
+    */
+    public $plural;
+
 
     /**
      * Sets default values, registers the passed post type, and
@@ -38,6 +50,9 @@ class JW_Post_Type
         
         $this->post_type_name = strtolower($name);
         $this->post_type_args = (array)$post_type_args;
+
+        // Handle Plurals & Singulars for labels throughout the admin area.
+        $this->createLabels();
 
         // First step, register that new post type
         $this->init(array(&$this, "register_post_type"));
@@ -63,17 +78,54 @@ class JW_Post_Type
 
     }
 
+    function createLabels(){
+
+        $singular = $this->post_type_args['singular_name'];
+        $plural   = $this->post_type_args['plural_name'];
+
+        // Singular name explicitly set.
+        if (!is_null($singular)){
+          $this->singular = ucwords($singular);
+          $this->plural   = ucwords($this->post_type_name);
+        }
+
+        // Plural name explicitly set.
+        if (!is_null($plural)){
+          $this->plural   = ucwords($plural);
+          $this->singular = ucwords($this->post_type_name);
+        }
+
+        // Nothing explicitly set
+        if (is_null($plural) && is_null($singular)){
+            $this->singular = ucwords($this->post_type_name);
+            $this->plural   = ucwords($this->post_type_name) . 's';
+        }
+    }
+
 
     /**
      * Registers a new post type in the WP db.
      */
     function register_post_type()
     {
-        $n = ucwords($this->post_type_name);
+        $labels = array(
+          'name'                => $this->plural,
+          'singular_name'       => $this->singular,
+          'add_new'             => 'Add New',
+          'add_new_item'        => 'Add New ' . $this->singular,
+          'edit_item'           => 'Edit '. $this->singular,
+          'new_item'            => 'New ' . $this->singular ,
+          'all_items'           => 'All ' . $this->plural,
+          'view_item'           => 'View ' . $this->singular,
+          'search_items'        => 'Search ' . $this->plural,
+          'not_found'           => 'No ' . $this->plural . ' found',
+          'not_found_in_trash'  => 'No ' . $this->plural . ' found in Trash',
+          'parent_item_colon'   => '',
+          'menu_name' => $this->plural
+        );
 
         $args = array(
-            "label" => $n . 's',
-            'singular_name' => $n,
+            "label" => $labels,
             "public" => true,
             "publicly_queryable" => true,
             "query_var" => true,
@@ -322,9 +374,9 @@ class JW_Post_Type
 // $product->add_taxonomy('Actor');
 // $product->add_taxonomy('Director');
 // $product->add_meta_box('Movie Info', array(
-// 	'name' => 'text',
-// 	'rating' => 'text',
-// 	'review' => 'textarea',
+//  'name' => 'text',
+//  'rating' => 'text',
+//  'review' => 'textarea',
 // 'Profile Image' => 'file'
 
 // ));
