@@ -78,6 +78,12 @@ class JW_Post_Type
 
     }
 
+    /**
+    *
+    * Create correct labels based on whether or not the user has provided
+    * Plural or Singular variations of the post type name
+    *
+    */
     function createLabels(){
 
         $singular = $this->post_type_args['singular_name'];
