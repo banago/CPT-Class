@@ -24,6 +24,13 @@ excerpt, I could do:
        'supports' => array('title', 'excerpt')
     );
 
+If the Plural version of your Post Type is more complicated than an additional 's', then you can specify 
+what it should be in the second parameter:
+    $snippet = new JW_Post_Type('Gallery', array(
+       'supports' => array('title', 'excerpt'),
+       'plural_name' => 'Galleries'
+    );
+
 If I want to also use the built-in category and/or tag taxonomies that WordPress provides...
 
     $snippet = new JW_Post_Type('Snippet', array(
