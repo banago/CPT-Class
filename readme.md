@@ -26,6 +26,7 @@ excerpt, I could do:
 
 If the Plural version of your Post Type is more complicated than an additional 's', then you can specify 
 what it should be in the second parameter:
+    
     $snippet = new JW_Post_Type('Gallery', array(
        'supports' => array('title', 'excerpt'),
        'plural_name' => 'Galleries'
