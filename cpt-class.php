@@ -181,7 +181,7 @@ class Post_Type
 
 				$options = array_merge(
 					array(
-						 "hierarchical" => false,
+						 "hierarchical" => true,
 						 "label" => $taxonomy_name,
 						 "singular_label" => $plural,
 						 "show_ui" => true,
