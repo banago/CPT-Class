@@ -1,26 +1,29 @@
+## About 
+
+I find myself much too often creating custom post types code for WordPress and it 
+was hight time I figured something out about it. Thus, here is this PHP class making 
+the process of creating WordPress custom post types & taxonomies as easy as possible.
+
+Producton Ready. I use it on multiple projects.
+
 ## Usage
-
-Firstly, this class *requires* PHP 5.3. Make sure you have it running.
-
-Secondly, this is still quite new, so it needs
-a lot of debugging and work. :) In other words, it's Beta. 
 
 First, download the class, and drag it into the root of your theme directory. 
 
 Next, within `functions.php`, require the class.
 
-    require 'cpt-class.php';
+    require 'inc/cpt-class.php';
 
 You now have access to the class and its functions. Instantiate the class.
 We'll use a Snippet post type as an example.
 
-    $snippet = new Post_Type('Snippet');
+    $product = new Post_Type('product');
 
 You may also pass an optional second parameter to override some of the
 defaults. For example, if I only want to provide support for a title and an
 excerpt, I could do:
 
-    $snippet = new Post_Type('Snippet', array(
+    $product = new Post_Type('product', array(
        'supports' => array('title', 'excerpt') )
     );
 
@@ -32,7 +35,7 @@ what it should be in the second parameter:
        'plural_name' => 'Galleries' )
     );
 
-If I want to also use the built-in category and/or tag taxonomies that WordPress provides...
+If I want to also use the built-in category and/or tag taxonomies that WordPress provides:
 
     $snippet = new Post_Type('Snippet', array(
        'taxonomies' => array('category', 'post_tag') )
@@ -50,3 +53,7 @@ I may also specify the plural form of my taxonomy, and any optional overrides.
     $snippet->add_taxonomy('Difficulty', 'Difficulties', array(
       'hierarchical' => false )
     );
+    
+## Requirements
+	> PHP 5.3. Make sure you have it running.
+	> Balls. Make sure you got them :)
