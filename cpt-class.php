@@ -372,18 +372,3 @@ class Post_Type
             });
     }
 }
-
-/*********/
-/* USAGE */
-/*********/
-
-// $product = new PostType("movie");
-// $product->add_taxonomy('Actor');
-// $product->add_taxonomy('Director');
-// $product->add_meta_box('Movie Info', array(
-//  'name' => 'text',
-//  'rating' => 'text',
-//  'review' => 'textarea',
-// 'Profile Image' => 'file'
-
-// ));
