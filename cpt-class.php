@@ -387,6 +387,3 @@ class Post_Type
 // 'Profile Image' => 'file'
 
 // ));
-
-
-
