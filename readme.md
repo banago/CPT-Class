@@ -55,5 +55,7 @@ I may also specify the plural form of my taxonomy, and any optional overrides.
     );
     
 ## Requirements
-	> PHP 5.3. Make sure you have it running.
-	> Balls. Make sure you got them :)
+
+* PHP 5.3. Make sure you have it running.
+* Balls. Make sure you got them :)
+
