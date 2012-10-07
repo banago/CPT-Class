@@ -21,21 +21,21 @@ defaults. For example, if I only want to provide support for a title and an
 excerpt, I could do:
 
     $snippet = new Post_Type('Snippet', array(
-       'supports' => array('title', 'excerpt')
+       'supports' => array('title', 'excerpt') )
     );
 
 If the Plural version of your Post Type is more complicated than an additional 's', then you can specify 
 what it should be in the second parameter:
     
     $snippet = new Post_Type('Gallery', array(
-       'supports' => array('title', 'excerpt'),
-       'plural_name' => 'Galleries'
+       'supports' => array('title', 'excerpt'), 
+       'plural_name' => 'Galleries' )
     );
 
 If I want to also use the built-in category and/or tag taxonomies that WordPress provides...
 
     $snippet = new Post_Type('Snippet', array(
-       'taxonomies' => array('category', 'post_tag')
+       'taxonomies' => array('category', 'post_tag') )
     );
 
 ### Custom Taxonomies
@@ -48,5 +48,5 @@ It makes sense to filter our sample Snippet post type by difficulty and language
 I may also specify the plural form of my taxonomy, and any optional overrides. 
 
     $snippet->add_taxonomy('Difficulty', 'Difficulties', array(
-      'show_ui' => false
+      'show_ui' => false )
     );
