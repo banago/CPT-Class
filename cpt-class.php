@@ -140,7 +140,7 @@ class Post_Type
 			"rewrite" => true,
 			"capability_type" => "post",
 			"hierarchical" => false,
-			"menu_position" => null,
+			"menu_position" => '5', // I know default is null, but I use '5' all the time, thus ...
 			"supports" => array("title", "editor", "thumbnail"),
 			'has_archive' => true
 		);
