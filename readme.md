@@ -48,5 +48,5 @@ It makes sense to filter our sample Snippet post type by difficulty and language
 I may also specify the plural form of my taxonomy, and any optional overrides. 
 
     $snippet->add_taxonomy('Difficulty', 'Difficulties', array(
-      'show_ui' => false )
+      'hierarchical' => false )
     );
