@@ -126,7 +126,7 @@ class Post_Type
 			'public' => true,
 			'publicly_queryable' => true,
 			'query_var' => true,
-			#'menu_icon' => get_stylesheet_directory_uri() . "/article16.png",
+			'menu_icon' => null,
 			'rewrite' => true,
 			'capability_type' => 'post',
 			'hierarchical' => false,

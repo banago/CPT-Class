@@ -17,43 +17,43 @@ Next, within `functions.php`, require the class.
 You now have access to the class and its functions. Instantiate the class.
 We'll use a Snippet post type as an example.
 
-    $product = new Post_Type('product');
+    $snippet = new Post_Type('snippet');
 
 You may also pass an optional second parameter to override some of the
 defaults. For example, if I only want to provide support for a title and an
 excerpt, I could do:
 
-    $product = new Post_Type('product', array(
-       'supports' => array('title', 'excerpt') )
-    );
+    $snippet = new Post_Type('snippet', array(
+		'supports' => array('title', 'excerpt'),
+		'menu_icon' => get_stylesheet_directory_uri() . '/img/custom-icon.png',
+	));
 
 If the Plural version of your Post Type is more complicated than an additional 's', then you can specify 
 what it should be in the second parameter:
     
-    $snippet = new Post_Type('Gallery', array(
-       'supports' => array('title', 'excerpt'), 
-       'plural_name' => 'Galleries' )
-    );
+    $gallery = new Post_Type('Gallery', array(
+		'plural_name' => 'Galleries',
+	));
 
 If I want to also use the built-in category and/or tag taxonomies that WordPress provides:
 
     $snippet = new Post_Type('Snippet', array(
-       'taxonomies' => array('category', 'post_tag') )
-    );
+		'taxonomies' => array('category', 'post_tag'),
+	));
 
 ### Custom Taxonomies
 
 It makes sense to filter our sample Snippet post type by difficulty and language. We can implement that functionality quite easily.
 
-    $snippet->add_taxonomy('Difficulty');
     $snippet->add_taxonomy('Language');
+    $snippet->add_taxonomy('Difficulty');
 
 You may also specify the plural form of your taxonomy, and any optional overrides. 
 
     $snippet->add_taxonomy('Difficulty', array(
-       'plural_name' => 'Difficulties'
-       'hierarchical' => false )
-    );
+       'plural_name' => 'Difficulties',
+       'hierarchical' => false,
+    ));
     
 ## Requirements
 
