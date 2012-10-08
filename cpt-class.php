@@ -4,7 +4,7 @@
  * Post Types
  * @author Baki Goxhaj
  * @link http://wplancer.com
- * @credit Based upon Jeffrey Way's work.
+ * @credits Based upon Jeffrey Way's work.
  */
 class Post_Type
 {
@@ -47,7 +47,7 @@ class Post_Type
 		$this->post_type_args = (array)$post_type_args;
 
 		// Handle Plurals & Singulars for labels throughout the admin area.
-		$this->createLabels();
+		$this->handle_labels();
 
 		// First step, register that new post type
 		$this->init(array(&$this, "register_post_type"));
@@ -78,7 +78,7 @@ class Post_Type
 	* Plural or Singular variations of the post type name
 	*
 	*/
-	protected function createLabels(){
+	protected function handle_labels(){
 		
 		$singular = $this->post_type_args['singular_name'];
 		$plural   = $this->post_type_args['plural_name'];

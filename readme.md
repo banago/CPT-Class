@@ -1,10 +1,10 @@
 ## About 
 
 I find myself much too often creating custom post types code for WordPress and it 
-was hight time I figured something out about it. Thus, here is this PHP class making 
-the process of creating WordPress custom post types & taxonomies as easy as possible.
+was high time I figured something out about it. Thus, here is this PHP class making 
+the process of creating WordPress custom post types and taxonomies as easy as possible.
 
-Producton Ready. I use it on multiple projects.
+This class is Producton Ready; I use it on multiple projects.
 
 ## Usage
 
@@ -12,7 +12,7 @@ First, download the class, and drag it into the root of your theme directory.
 
 Next, within `functions.php`, require the class.
 
-    require 'inc/cpt-class.php';
+    require TEMPLATEPATH . '/inc/cpt-class.php';
 
 You now have access to the class and its functions. Instantiate the class.
 We'll use a Snippet post type as an example.
