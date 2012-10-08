@@ -192,13 +192,13 @@ class Post_Type
 						 'hierarchical' => true,
 						 'show_ui' => true,
 						 'query_var' => true,
-						 'rewrite' => array('slug' => strtolower($singular))
+						 'rewrite' => array('slug' => strtolower(str_replace(' ', '-', $singular)))
 					),
 					$taxonomy_args
 				);
 
 				// name of taxonomy, associated post type, options
-				register_taxonomy(strtolower($singular), $post_type_name, $options);
+				register_taxonomy(strtolower(str_replace(' ', '-', $singular)), $post_type_name, $options);
 			});
 	}
 }
