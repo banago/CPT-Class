@@ -78,8 +78,8 @@ class Post_Type
 	*/
 	protected function handle_cpt_labels(){
 
-		$singular = $this->post_type_args['singular_name'];
-		$plural   = $this->post_type_args['plural_name'];
+		$singular = isset( $this->post_type_args['singular_name'] ) ? $this->post_type_args['singular_name'] : null;
+		$plural   = isset( $this->post_type_args['plural_name'] ) ? $this->post_type_args['plural_name'] : null;
 
 		// Singular name explicitly set.
 		if (!is_null($singular)){
