@@ -78,26 +78,9 @@ class Post_Type
 	*/
 	protected function handle_cpt_labels(){
 
-		$singular = $this->post_type_args['singular_name'];
-		$plural   = $this->post_type_args['plural_name'];
+		$this->singular = isset( $this->post_type_args['singular_name'] ) ? ucwords( $this->post_type_args['singular_name'] ) : ucwords($this->post_type_name);
+		$this->plural   = isset( $this->post_type_args['plural_name'] ) ? ucwords( $this->post_type_args['plural_name'] ) : ucwords($this->post_type_name) . 's';
 
-		// Singular name explicitly set.
-		if (!is_null($singular)){
-		  $this->singular = ucwords($singular);
-		  $this->plural   = ucwords($this->post_type_name);
-		}
-
-		// Plural name explicitly set.
-		if (!is_null($plural)){
-		  $this->plural   = ucwords($plural);
-		  $this->singular = ucwords($this->post_type_name);
-		}
-
-		// Nothing explicitly set
-		if (is_null($plural) && is_null($singular)){
-			$this->singular = ucwords($this->post_type_name);
-			$this->plural   = ucwords($this->post_type_name) . 's';
-		}
 	}
 
 	/**
