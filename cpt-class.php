@@ -188,11 +188,12 @@ class Post_Type
 				// Override defaults with user provided options
 				$options = array_merge(
 					array(
-						 'labels' => $labels,
-						 'hierarchical' => true,
-						 'show_ui' => true,
-						 'query_var' => true,
-						 'rewrite' => array('slug' => strtolower(str_replace(' ', '-', $singular)))
+						'labels' => $labels,
+						'hierarchical' => true,
+						'show_ui' => true,
+						'query_var' => true,
+						'show_admin_column' => true,
+						'rewrite' => array('slug' => strtolower(str_replace(' ', '-', $singular)))
 					),
 					$taxonomy_args
 				);
